@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Musician List</title>
+</head>
+<body>
+    <h1>{{ test }}</h1>
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Instrument</th>
+        </tr>
+        {% for row in musician %}
+        <tr>
+            <td>{{row.first_name}}</td>
+            <td>{{row.last_name}}</td>
+            <td>{{row.instrument}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <hr>
+    <h1>{{ heading }}</h1>
+    <form action="">
+        {{ form }}
+    </form>
+</body>
+</html>
