@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Musician List</title>
-</head>
-<body>
-    <h1>{{ test }}</h1>
+{% extends "appn1/base.html" %}
+{% load my_filters %}
+{% block content %}
+    <div class="container">
+        <h1>{{ test }}</h1>
+    <a href="/form/">Add New Musician</a>
     <table border="1">
         <tr>
             <th>First Name</th>
@@ -23,11 +19,7 @@
         </tr>
         {% endfor %}
     </table>
-    <br>
     <hr>
-    <h1>{{ heading }}</h1>
-    <form action="">
-        {{ form }}
-    </form>
-</body>
-</html>
+    <h3>{{ filter_test|custom_filter }}</h3>
+    </div>
+{% endblock %}

@@ -3,5 +3,6 @@ from django.urls import path
 from appn1 import views
 
 urlpatterns = [
-    path('test/',views.index, name='index'),
+    path('',views.index, name='index'),
+    path('form/', views.form, name='form')
 ]
