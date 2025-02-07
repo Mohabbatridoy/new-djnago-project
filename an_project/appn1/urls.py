@@ -2,7 +2,12 @@
 from django.urls import path
 from appn1 import views
 
+app_name = 'appn1'
+
 urlpatterns = [
-    path('',views.index, name='index'),
-    path('form/', views.form, name='form')
+    path('',views.index, name='home'),
+    path('index/', views.index, name= 'index'),
+    path('album_list/<int:artist_id>/',views.Album_list, name='album_list'),
+    path('album_form/', views.Album_form, name="album_form"),
+    path('musician_form/', views.Musician_form, name="musician_form"),
 ]

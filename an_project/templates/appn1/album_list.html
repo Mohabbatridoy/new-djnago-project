@@ -1,0 +1,21 @@
+{% extends 'appn1/base.html' %}
+{% block content %}
+<h1>Artist Information: </h1>
+<h6>Artist Name: {{artist_info.first_name}} {{artist_info.last_name}} </h6>
+<h6>Artist Instrument: {{artist_info.instrument}}</h6>
+<h2>Album Information:</h2>
+<table border="1">
+    <tr>
+        <th>Album Name</th>
+        <th>Release Date</th>
+        <th>Ratings</th>
+    </tr>
+    {% for i in album_list %}
+    <tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.release_date }}</td>
+        <td>{{ i.num_stars }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

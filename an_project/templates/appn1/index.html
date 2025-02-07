@@ -1,25 +1,15 @@
-<!DOCTYPE html>
-{% extends "appn1/base.html" %}
-{% load my_filters %}
+{% extends 'appn1/base.html' %}
 {% block content %}
-    <div class="container">
-        <h1>{{ test }}</h1>
-    <a href="/form/">Add New Musician</a>
-    <table border="1">
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Instrument</th>
-        </tr>
-        {% for row in musician %}
-        <tr>
-            <td>{{row.first_name}}</td>
-            <td>{{row.last_name}}</td>
-            <td>{{row.instrument}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <hr>
-    <h3>{{ filter_test|custom_filter }}</h3>
-    </div>
+<h1><u>List of Musician:</u></h1>
+<ul>
+    {% if musician %}
+    {% for musician in musician %}
+    <li>
+        <a href="{% url 'appn1:album_list' artist_id=musician.id %}">{{ musician.first_name }} {{ musician.last_name}}</a>
+    </li>
+    {% endfor %}
+    {% else %}
+        <h4>There is no musician list</h4>
+    {% endif %}
+</ul>
 {% endblock %}

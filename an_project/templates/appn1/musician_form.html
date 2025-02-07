@@ -1,0 +1,9 @@
+{% extends 'appn1/base.html' %}
+{% block content %}
+<h1>Musician Form:</h1>
+<form method="POST">
+    {{ m_form }}
+    {% csrf_token %}
+    <input type="submit" value="Add Musician">
+</form>
+{% endblock %}
