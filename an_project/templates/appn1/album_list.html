@@ -4,6 +4,7 @@
 <h6>Artist Name: {{artist_info.first_name}} {{artist_info.last_name}} </h6>
 <h6>Artist Instrument: {{artist_info.instrument}}</h6>
 <h6>Artist Ratings: {{artist_rating}}</h6>
+<a href="{% url 'appn1:edit_artist' artist_id=artist_info.id %}" class="btn btn-info ">Edit Artist</a>
 <h2>Album Information:</h2>
 <table class="table table-bordered">
     <tr>

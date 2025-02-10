@@ -37,6 +37,7 @@ def Album_form(request):
 
         if albums_form.is_valid():
             albums_form.save(commit=True)
+            return index(request)
 
     diction = {
         'title':'Add new Album', 'a_form': albums_form,
@@ -54,8 +55,27 @@ def Musician_form(request):
 
         if musicians_form.is_valid():
             musicians_form.save(commit=True)
+            return index(request)
 
     diction = {
         'title':'Add new Musician', 'm_form':musicians_form,
     }
     return render(request, 'appn1/musician_form.html', context=diction)
+
+
+def Edit_Artist(request, artist_id):
+    artist_info = models.Musician.objects.get(pk=artist_id)
+    form = forms.MusicianForm(instance=artist_info)
+
+    if request.method == 'POST':
+        form = forms.MusicianForm(request.POST, instance=artist_info)
+
+        if form.is_valid():
+            form.save(commit=True)
+            return Album_list(request, artist_id)
+
+    diction = {
+        'form':form,
+    }
+
+    return render(request, 'appn1/edit_artist_info.html', context=diction)

@@ -1,0 +1,10 @@
+{% extends 'appn1/base.html' %}
+{% block content %}
+<h4>Edit Artist Informations: </h4>
+<form method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit" value="Upadte" class="btn btn-success">
+</form>
+
+{% endblock %}
