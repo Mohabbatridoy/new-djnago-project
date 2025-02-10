@@ -1,0 +1,9 @@
+{% extends 'appn1/base.html' %}
+{% block content %}
+<h4>Update the Album</h4>
+<form method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit" name="" id="" value="Update" class="btn btn-info">
+</form>
+{% endblock %}

@@ -11,4 +11,5 @@ urlpatterns = [
     path('album_form/', views.Album_form, name="album_form"),
     path('musician_form/', views.Musician_form, name="musician_form"),
     path('edit_artist/<int:artist_id>/', views.Edit_Artist, name="edit_artist"),
+    path('edit_album/<int:album_id>/', views.edit_album, name="edit_album"),
 ]

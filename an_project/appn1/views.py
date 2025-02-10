@@ -79,3 +79,19 @@ def Edit_Artist(request, artist_id):
     }
 
     return render(request, 'appn1/edit_artist_info.html', context=diction)
+
+def edit_album(request, album_id):
+    album_info = models.Album.objects.get(pk=album_id)
+    form = forms.AlbumForm(instance=album_info)
+
+    if request.method == "POST":
+        form = forms.AlbumForm(request.POST, instance=album_info)
+
+        if form.is_valid():
+            form.save(commit=True)
+
+    diction = {
+        'form': form
+    }
+
+    return render(request, 'appn1/edit_album.html', context=diction)

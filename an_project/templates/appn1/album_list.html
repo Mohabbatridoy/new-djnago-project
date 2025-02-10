@@ -14,7 +14,7 @@
     </tr>
     {% for i in album_list %}
     <tr>
-        <td>{{ i.name }}</td>
+        <td><a href="{% url 'appn1:edit_album' album_id=i.id %}">{{ i.name }}</a></td>
         <td>{{ i.release_date }}</td>
         <td>{{ i.num_stars }}</td>
     </tr>
