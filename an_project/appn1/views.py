@@ -73,6 +73,7 @@ def Edit_Artist(request, artist_id):
         if form.is_valid():
             form.save(commit=True)
             return Album_list(request, artist_id)
+        
 
     diction = {
         'form':form,
@@ -83,15 +84,26 @@ def Edit_Artist(request, artist_id):
 def edit_album(request, album_id):
     album_info = models.Album.objects.get(pk=album_id)
     form = forms.AlbumForm(instance=album_info)
+    diction = {
+        'form': form,
+        'album_id':album_id,
+    }
 
     if request.method == "POST":
         form = forms.AlbumForm(request.POST, instance=album_info)
 
         if form.is_valid():
             form.save(commit=True)
+            diction.update({'success_text':'Successfully Album updated'})
 
-    diction = {
-        'form': form
-    }
+
 
     return render(request, 'appn1/edit_album.html', context=diction)
+
+
+def delete_album(request, album_id):
+    artist = models.Album.objects.get(pk=album_id).delete()
+    diction = {
+        'delete_text':'successfylly deleted the album!',
+    }
+    return render(request, 'appn1/delete_album.html', context=diction)

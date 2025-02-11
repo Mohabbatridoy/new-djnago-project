@@ -1,9 +1,14 @@
 {% extends 'appn1/base.html' %}
 {% block content %}
+{% if success_text %}
+<div class="alert alert-success">{{ success_text }}</div>
+{% endif %}
 <h4>Update the Album</h4>
 <form method="POST">
     {{ form.as_p }}
     {% csrf_token %}
     <input type="submit" name="" id="" value="Update" class="btn btn-info">
 </form>
+<br>
+<a href="{% url 'appn1:delete_album' album_id %}" class="btn btn-danger btn-sm" onclick="return confirm('Are you Sure?')">Delete</a>
 {% endblock %}
